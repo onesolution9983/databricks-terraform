@@ -1,15 +1,29 @@
 variable "databricks_host" {
-  description = "Databricks workspace URL"
+  description = "The Databricks workspace URL."
   type        = string
 }
 
 variable "databricks_token" {
-  description = "Databricks access token"
+  description = "The Databricks access token."
   type        = string
-  sensitive   = true
 }
 
-variable "log_analytics_workspace_id" {
-  description = "Azure Log Analytics workspace ID"
+variable "default_storage_account_key" {
+  description = "The access key for the default storage account."
+  type        = string
+}
+
+variable "custom_storage_account_key" {
+  description = "The access key for the custom storage account."
+  type        = string
+}
+
+variable "secret_scope" {
+  description = "The Databricks secret scope."
+  type        = string
+}
+
+variable "secret_key" {
+  description = "The key for the secret."
   type        = string
 }
