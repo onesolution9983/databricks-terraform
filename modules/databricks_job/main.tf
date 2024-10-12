@@ -5,6 +5,8 @@ terraform {
       version = "1.53.0"
     }
   }
+
+  required_version = ">= 0.12"
 }
 
 resource "databricks_job" "this" {
