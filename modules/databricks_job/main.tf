@@ -25,7 +25,7 @@ resource "databricks_job" "job" {
 
   # Define the Databricks secrets
   environment_variables = { 
-    for secret in var.databricks_secrets : secret.key => "dbutils.secrets.get(scope = "${secret.scope}", key = "${secret.key}")" 
+    for secret in var.databricks_secrets : secret.key => "dbutils.secrets.get(scope = '${secret.scope}', key = '${secret.key}')"
   }
 }
 
@@ -45,7 +45,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics" {
   target_resource_id         = databricks_job.job.id
   log_analytics_workspace_id = var.log_analytics_workspace_id
 
-  log {
+  metric {
     category = "jobs"
     enabled  = true
     retention_policy {
