@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    databricks = {
+      source  = "databricks/databricks"
+      version = "~> 0.3"
+    }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.5.0"
+    }
+  }
+}
+
 provider "databricks" {
   host  = var.databricks_host
   token = var.databricks_token
