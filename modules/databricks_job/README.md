@@ -58,11 +58,10 @@ node_type_id = "i3.xlarge"
 
 ### Example 1: Basic Job Configuration
 ```hcl
-hcl
 module "basic_databricks_job" {
 source = "../modules/databricks_job"
 job_name = "basic-job"
-cluster_id = "your-cluster-id"
+cluster_id = "test-cluster-id"
 notebook_path = "/Users/your_user@example.com/your_notebook"
 }
 ```
@@ -72,7 +71,7 @@ notebook_path = "/Users/your_user@example.com/your_notebook"
 module "job_with_libraries" {
 source = "../modules/databricks_job"
 job_name = "job-with-libraries"
-cluster_id = "your-cluster-id"
+cluster_id = "test-cluster-id"
 notebook_path = "/Users/your_user@example.com/your_notebook"
 libraries = ["dbfs:/path/to/your/library.jar"]
 }

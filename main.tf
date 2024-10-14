@@ -36,14 +36,12 @@ module "databricks_job_example" {
     "spark.executor.memory" = "4g"
     "spark.driver.memory"   = "4g"
   }
-  // Removed log_analytics_workspace_id as it is not expected
-  // log_analytics_workspace_id = var.log_analytics_workspace_id
 }
 
-module "databricks_job_another_example" {
+module "databricks_job_example_2" {
   source = "./modules/databricks_job"
 
-  job_name = "another-example-job"
+  job_name = "example-job-2"
   cluster_definition = {
     num_workers   = 3
     spark_version = "7.3.x-scala2.12"
@@ -62,6 +60,4 @@ module "databricks_job_another_example" {
     "spark.executor.memory" = "6g"
     "spark.driver.memory"   = "6g"
   }
-  // Removed log_analytics_workspace_id as it is not expected
-  // log_analytics_workspace_id = var.log_analytics_workspace_id
 }
