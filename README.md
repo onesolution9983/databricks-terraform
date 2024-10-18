@@ -1,3 +1,5 @@
+![](https://api.visitorbadge.io/api/VisitorHit?user=onesolution9983&repo=databricks-terraform&countColor=%237B1E7A)
+
 # Databricks Terraform Project
 
 This project is designed to manage Databricks resources using Terraform. It provides a structured way to define, deploy, and manage Databricks jobs, clusters, and other resources in a reproducible manner.
