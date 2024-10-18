@@ -1,0 +1,56 @@
+name: Terraform CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.4.6  # Specify the Terraform version
+
+      - name: Terraform Init
+        run: echo "Initializing Terraform in the directory: ./"
+        working-directory: ./  # Path to the Terraform code
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          echo "Planning Terraform changes..."
+          echo "Terraform plan would be executed here."
+          # You can print the variables you would use in the plan
+          echo "Variables:"
+          echo "  DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}"
+          echo "  DATABRICKS_TOKEN: [REDACTED]"
+          echo "  TENANT_ID: [REDACTED]"
+          echo "  DEFAULT_STORAGE_ACCOUNT: ${{ secrets.DEFAULT_STORAGE_ACCOUNT }}"
+          echo "  CUSTOM_STORAGE_ACCOUNT: ${{ secrets.CUSTOM_STORAGE_ACCOUNT }}"
+          echo "  ADDITIONAL_SPARK_CONF: [REDACTED]"
+        working-directory: ./  # Path to the Terraform code
+
+      - name: Terraform Apply
+        run: |
+          echo "Applying Terraform changes..."
+          echo "Terraform apply would be executed here."
+        working-directory: ./  # Path to the Terraform code
+
+      - name: Terraform Output
+        run: |
+          echo "Displaying Terraform outputs..."
+          # You can print expected outputs here
+          echo "Outputs:"
+          echo "  job_id: <job_id_value>"
+          echo "  cluster_id: <cluster_id_value>"
+        working-directory: ./  # Path to the Terraform code
