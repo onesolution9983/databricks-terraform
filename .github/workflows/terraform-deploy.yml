@@ -22,7 +22,8 @@ jobs:
           terraform_version: 1.4.6  # Specify the Terraform version
 
       - name: Terraform Init
-        run: echo "Initializing Terraform in the directory: ./"
+        run: | 
+          echo "Initializing Terraform in the directory: ./"
         working-directory: ./  # Path to the Terraform code
 
       - name: Terraform Plan
